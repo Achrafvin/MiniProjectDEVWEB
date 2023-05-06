@@ -6,7 +6,12 @@
 }
 <div class="row w-100 mx-0 py-5">
     <div class="col-10 mx-auto">
-
+<form method="get" asp-action="Index" class="form-inline my-2 my-lg-0">
+     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value="@ViewData["GetProdId"]" name="Psearch">
+     <a class="btn btn-outline-success my-2 my-sm-0" asp-action="Index">Tous Les Produits</a>
+     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Search</button>
+        </form>
+		
  <table class="table table-dark table-hover">
             <thead>
                 <tr>

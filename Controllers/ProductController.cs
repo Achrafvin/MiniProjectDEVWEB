@@ -15,6 +15,22 @@ namespace AppStore.Controllers
         {
             return View(DbLocal.products);
         }
+        
+        [HttpGet]
+        public ActionResult Index(String Psearch)
+        {
+            ViewData["GetProdId"] = Psearch;
+            var query = from x in DbLocal.products select x;
+            if (!String.IsNullOrEmpty(Psearch))
+            {
+                query = query.Where(x => x.Nom.Contains(Psearch)).ToList();
+                
+            }
+            
+                return View(query.ToList());
+            
+
+        }
 
 
         // GET: Product/Details/5

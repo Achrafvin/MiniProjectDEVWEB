@@ -1,0 +1,77 @@
+﻿@model IEnumerable<AppStore.Models.Product>
+
+@{
+    @Html.Partial("_Auth")
+    ViewBag.Title = "Index";
+}
+<div class="row w-100 mx-0 py-5">
+    <div class="col-10 mx-auto">
+
+ <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdProd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeProd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Qstock)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.dAjoute)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.IdProd)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeProd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qstock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dAjoute)
+        </td>
+        <td>
+            <img class="imgHome" src=" @Html.DisplayFor(modelItem => item.Image)" />
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdProd }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdProd }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdProd })
+        </td>
+    </tr>
+   }
+
+        </table>
+        <p class="btn btn-dark">
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+</div>

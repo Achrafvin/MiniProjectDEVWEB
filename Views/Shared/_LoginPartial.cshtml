@@ -1,0 +1,25 @@
+﻿@using AppStore.Models
+@if (Session["IdUser"] != null)
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li class="nav-item">
+            @if (Session["Username"] != null)
+            {<h2> Bonjour @Session["Username"] </h2>}
+        </li>
+
+        <li class="nav-item">
+            <a href="@Url.Action("LogOut","Account")"><i class="nav-link fas fa-right-from-bracket"></i></a>
+
+        </li>
+
+
+    </ul>
+
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink(" ", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "fas fa-user" })</li>
+    </ul>
+}

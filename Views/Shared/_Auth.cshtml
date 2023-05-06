@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+    if (Session["IdUser"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+    ViewBag.Title = "Dashboard";
+}

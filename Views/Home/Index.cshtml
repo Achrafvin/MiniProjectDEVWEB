@@ -1,0 +1,35 @@
+﻿@model List<AppStore.Models.Product>
+
+@{
+    @Html.Partial("_Auth")
+    ViewBag.Title = "Home Page";
+
+}
+
+
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4 py-5 px-5">
+   @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <img src="@item.Image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nom</h5>
+                        <span class="badge bg-secondary">@item.Price DHS</span>
+                    </div>
+                </div>
+            </div>
+        }
+
+    
+
+
+
+</div>
+
+
+
+
+
